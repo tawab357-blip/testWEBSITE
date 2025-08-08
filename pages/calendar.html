@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calendar - AI Nexus Pro</title>
+    <meta name="description" content="Intelligent scheduling system with Google Calendar integration and automated appointment booking">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/integrations.css">
+    
+    <style>
+        .calendar-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .calendar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .calendar-demo {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        
+        .calendar-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .calendar-content {
+            padding: 40px;
+        }
+        
+        .calendar-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-tab {
+            padding: 15px 30px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-tab.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .event-types {
+            margin-bottom: 30px;
+        }
+        
+        .event-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .event-type {
+            background: #f8f9fa;
+            border: 2px solid #e1e5e9;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .event-type:hover,
+        .event-type.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+        
+        .event-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .event-details h5 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .event-details p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .calendly-widget {
+            height: 600px;
+            border: 1px solid #e1e5e9;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .calendar-auth {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .auth-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-btn:hover {
+            background: #3367d6;
+        }
+        
+        .calendar-view {
+            display: none;
+        }
+        
+        .calendar-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .calendar-grid {
+            border: 1px solid #e1e5e9;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: #f8f9fa;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .calendar-weekdays div {
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+        
+        .calendar-day {
+            padding: 15px;
+            text-align: center;
+            border-right: 1px solid #e1e5e9;
+            border-bottom: 1px solid #e1e5e9;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .calendar-day:hover {
+            background: #f0f4ff;
+        }
+        
+        .calendar-day.current-month {
+            background: white;
+        }
+        
+        .calendar-day.other-month {
+            background: #f8f9fa;
+            color: #999;
+        }
+        
+        .calendar-day.today {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .calendar-day.has-appointment {
+            background: #d4edda;
+        }
+        
+        .appointment-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+        }
+        
+        .time-slots {
+            margin-top: 30px;
+        }
+        
+        .slots-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .time-slot {
+            padding: 15px;
+            border: 1px solid #e1e5e9;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .time-slot.available {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .time-slot.available:hover {
+            background: #c3e6cb;
+        }
+        
+        .time-slot.booked {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+            cursor: not-allowed;
+        }
+        
+        .slot-time {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .slot-date {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Nexus Pro</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chatbot.html" class="nav-link">AI Chatbot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="voicebot.html" class="nav-link">Voice Bot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="calendar.html" class="nav-link active">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin.html" class="nav-link">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="calendar-hero">
+        <div class="container">
+            <h1>Smart Calendar</h1>
+            <p>Intelligent scheduling system with Google Calendar integration and automated appointment booking</p>
+        </div>
+    </section>
+
+    <!-- Calendar Demo -->
+    <section class="calendar-container">
+        <div class="calendar-demo">
+            <div class="calendar-header">
+                <h2>Book Your Appointment</h2>
+                <p>Choose your preferred consultation type and schedule a time that works for you</p>
+            </div>
+            <div class="calendar-content">
+                <div class="calendar-tabs">
+                    <button class="calendar-tab active" data-tab="calendly">Calendly</button>
+                    <button class="calendar-tab" data-tab="google">Google Calendar</button>
+                </div>
+                
+                <div class="tab-content active" id="calendly">
+                    <div class="event-types">
+                        <h4>Select Consultation Type</h4>
+                        <div class="event-type-options">
+                            <div class="event-type selected" data-type="consultation">
+                                <div class="event-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="event-details">
+                                    <h5>Free Consultation</h5>
+                                    <p>30-minute initial consultation</p>
+                                </div>
+                            </div>
+                            <div class="event-type" data-type="discovery">
+                                <div class="event-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="event-details">
+                                    <h5>Discovery Call</h5>
+                                    <p>60-minute detailed discussion</p>
+                                </div>
+                            </div>
+                            <div class="event-type" data-type="technical">
+                                <div class="event-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="event-details">
+                                    <h5>Technical Review</h5>
+                                    <p>90-minute technical assessment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendly-widget" id="calendlyWidget">
+                        <iframe src="https://calendly.com/ainexuspro/consultation" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="google">
+                    <div class="calendar-auth" id="calendarAuth">
+                        <h3>Connect Your Google Calendar</h3>
+                        <p>Sign in with Google to view and book appointments directly in your calendar</p>
+                        <button class="auth-btn" id="googleAuthBtn">
+                            <i class="fab fa-google"></i>
+                            Sign in with Google
+                        </button>
+                    </div>
+                    
+                    <div class="calendar-view" id="calendarView">
+                        <div class="calendar-controls">
+                            <div class="calendar-nav">
+                                <button class="nav-btn" id="prevMonth">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h3 id="currentMonth">December 2024</h3>
+                                <button class="nav-btn" id="nextMonth">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="calendar-grid" id="calendarGrid">
+                            <!-- Calendar will be generated here -->
+                        </div>
+                        
+                        <div class="time-slots">
+                            <h4>Available Time Slots</h4>
+                            <div class="slots-container" id="timeSlots">
+                                <!-- Time slots will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <h3>Calendar Sync</h3>
+                <p>Seamless integration with Google Calendar, Outlook, and other popular calendar applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Smart Scheduling</h3>
+                <p>AI-powered scheduling that suggests optimal meeting times based on availability and preferences.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Automated Reminders</h3>
+                <p>Intelligent reminder system with email, SMS, and push notifications to ensure no missed appointments.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Analytics & Insights</h3>
+                <p>Comprehensive analytics to track booking patterns, optimize scheduling, and improve efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/calendar-integration.js"></script>
+    <script>
+        // Enhanced calendar functionality
+        class EnhancedCalendar {
+            constructor() {
+                this.currentDate = new Date();
+                this.selectedEventType = 'consultation';
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.generateCalendar();
+                this.generateTimeSlots();
+            }
+
+            setupEventListeners() {
+                const tabs = document.querySelectorAll('.calendar-tab');
+                const eventTypes = document.querySelectorAll('.event-type');
+                const prevBtn = document.getElementById('prevMonth');
+                const nextBtn = document.getElementById('nextMonth');
+                const authBtn = document.getElementById('googleAuthBtn');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        this.switchTab(tab.dataset.tab);
+                    });
+                });
+
+                eventTypes.forEach(type => {
+                    type.addEventListener('click', () => {
+                        this.selectEventType(type);
+                    });
+                });
+
+                if (prevBtn) prevBtn.addEventListener('click', () => this.navigateMonth(-1));
+                if (nextBtn) nextBtn.addEventListener('click', () => this.navigateMonth(1));
+                if (authBtn) authBtn.addEventListener('click', () => this.authenticateGoogle());
+            }
+
+            switchTab(tabName) {
+                const tabs = document.querySelectorAll('.calendar-tab');
+                const contents = document.querySelectorAll('.tab-content');
+
+                tabs.forEach(tab => tab.classList.remove('active'));
+                contents.forEach(content => content.classList.remove('active'));
+
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                if (tabName === 'calendly') {
+                    this.updateCalendlyWidget();
+                }
+            }
+
+            selectEventType(typeElement) {
+                const eventTypes = document.querySelectorAll('.event-type');
+                eventTypes.forEach(type => type.classList.remove('selected'));
+                typeElement.classList.add('selected');
+                this.selectedEventType = typeElement.dataset.type;
+                this.updateCalendlyWidget();
+            }
+
+            updateCalendlyWidget() {
+                const widget = document.getElementById('calendlyWidget');
+                const eventType = this.selectedEventType;
+                const calendlyUrl = `https://calendly.com/ainexuspro/${eventType}`;
+                widget.innerHTML = `<iframe src="${calendlyUrl}" width="100%" height="100%" frameborder="0"></iframe>`;
+            }
+
+            generateCalendar() {
+                const grid = document.getElementById('calendarGrid');
+                if (!grid) return;
+
+                const year = this.currentDate.getFullYear();
+                const month = this.currentDate.getMonth();
+
+                // Update month display
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                                   'July', 'August', 'September', 'October', 'November', 'December'];
+                document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+
+                // Generate calendar HTML
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const startDate = new Date(firstDay);
+                startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+                let calendarHTML = `
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+                    <div class="calendar-days">
+                `;
+
+                for (let i = 0; i < 42; i++) {
+                    const currentDate = new Date(startDate);
+                    currentDate.setDate(startDate.getDate() + i);
+                    
+                    const isCurrentMonth = currentDate.getMonth() === month;
+                    const isToday = currentDate.toDateString() === new Date().toDateString();
+                    const hasAppointment = this.hasAppointment(currentDate);
+                    
+                    let dayClass = 'calendar-day';
+                    if (!isCurrentMonth) dayClass += ' other-month';
+                    if (isToday) dayClass += ' today';
+                    if (hasAppointment) dayClass += ' has-appointment';
+                    
+                    calendarHTML += `
+                        <div class="${dayClass}" data-date="${currentDate.toISOString().split('T')[0]}">
+                            ${currentDate.getDate()}
+                            ${hasAppointment ? '<div class="appointment-indicator"></div>' : ''}
+                        </div>
+                    `;
+                }
+
+                calendarHTML += '</div>';
+                grid.innerHTML = calendarHTML;
+
+                // Add click events to days
+                const days = grid.querySelectorAll('.calendar-day');
+                days.forEach(day => {
+                    day.addEventListener('click', () => {
+                        this.selectDate(day.dataset.date);
+                    });
+                });
+            }
+
+            generateTimeSlots() {
+                const container = document.getElementById('timeSlots');
+                if (!container) return;
+
+                const slots = [];
+                const startHour = 9; // 9 AM
+                const endHour = 17; // 5 PM
+
+                for (let hour = startHour; hour < endHour; hour++) {
+                    for (let minute = 0; minute < 60; minute += 30) {
+                        const time = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                        const isBooked = Math.random() > 0.7; // 30% chance of being booked
+                        
+                        slots.push({
+                            time: time,
+                            booked: isBooked
+                        });
+                    }
+                }
+
+                let slotsHTML = '';
+                slots.forEach(slot => {
+                    const slotClass = slot.booked ? 'time-slot booked' : 'time-slot available';
+                    slotsHTML += `
+                        <div class="${slotClass}" data-time="${slot.time}">
+                            <div class="slot-time">${slot.time}</div>
+                            <div class="slot-date">Today</div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = slotsHTML;
+
+                // Add click events to available slots
+                const availableSlots = container.querySelectorAll('.time-slot.available');
+                availableSlots.forEach(slot => {
+                    slot.addEventListener('click', () => {
+                        this.bookSlot(slot.dataset.time);
+                    });
+                });
+            }
+
+            hasAppointment(date) {
+                // Simulate appointment checking
+                return Math.random() > 0.8; // 20% chance of having an appointment
+            }
+
+            selectDate(date) {
+                console.log('Selected date:', date);
+                // Update time slots for selected date
+                this.generateTimeSlots();
+            }
+
+            bookSlot(time) {
+                alert(`Booking confirmed for ${time}! You will receive a confirmation email shortly.`);
+            }
+
+            navigateMonth(direction) {
+                this.currentDate.setMonth(this.currentDate.getMonth() + direction);
+                this.generateCalendar();
+            }
+
+            authenticateGoogle() {
+                // Simulate Google authentication
+                document.getElementById('calendarAuth').style.display = 'none';
+                document.getElementById('calendarView').style.display = 'block';
+            }
+        }
+
+        // Initialize enhanced calendar
+        document.addEventListener('DOMContentLoaded', () => {
+            new EnhancedCalendar();
+        });
+    </script>
+</body>
+</html> 

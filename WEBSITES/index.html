@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Nexus Pro - Enterprise AI Integration Solutions</title>
+    <meta name="description" content="Leading AI integration services for enterprises. Transform your business with cutting-edge AI solutions for mobile apps, websites, and enterprise software.">
+    <meta name="keywords" content="AI integration, enterprise AI, business AI, mobile app AI, website AI, machine learning, OpenAI, custom AI solutions">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/integrations.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Nexus Pro</span>
+            </div>
+            <div class="loading-spinner"></div>
+            <p>Initializing AI Systems...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI Nexus Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/chatbot.html" class="nav-link">AI Chatbot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/voicebot.html" class="nav-link">Voice Bot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/calendar.html" class="nav-link">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/payments.html" class="nav-link">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pages/admin.html" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>Trusted by 500+ Enterprises</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Transform Your Business</span>
+                    <br>With Intelligent AI Solutions
+                </h1>
+                <p class="hero-subtitle">We integrate cutting-edge AI into your existing systems, delivering measurable results and competitive advantages. From chatbots to predictive analytics, we make AI work for your business.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Start Your AI Journey
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary btn-large">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-3d-container">
+                    <div class="ai-brain">
+                        <i class="fas fa-brain"></i>
+                        <div class="neural-network"></div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="element element-1">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="element element-2">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="element element-3">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Showcase -->
+    <section class="ai-features-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our AI Integration Suite</h2>
+                <p class="section-subtitle">Comprehensive AI tools designed to streamline your business operations</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>AI Chatbot</h3>
+                    <p>Intelligent FAQ system with natural language processing and 24/7 customer support.</p>
+                    <div class="feature-actions">
+                        <a href="pages/chatbot.html" class="btn btn-primary btn-sm">Try Chatbot</a>
+                        <a href="pages/chatbot.html" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Voice Bot</h3>
+                    <p>AI-powered voice assistant for phone calls with real-time transcription and conversation management.</p>
+                    <div class="feature-actions">
+                        <a href="pages/voicebot.html" class="btn btn-primary btn-sm">Try Voice Bot</a>
+                        <a href="pages/voicebot.html" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Smart Calendar</h3>
+                    <p>Intelligent scheduling system with Google Calendar integration and automated appointment booking.</p>
+                    <div class="feature-actions">
+                        <a href="pages/calendar.html" class="btn btn-primary btn-sm">Book Appointment</a>
+                        <a href="pages/calendar.html" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Payment System</h3>
+                    <p>Secure payment processing with Stripe integration, subscription management, and payment links.</p>
+                    <div class="feature-actions">
+                        <a href="pages/payments.html" class="btn btn-primary btn-sm">Make Payment</a>
+                        <a href="pages/payments.html" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Admin Dashboard</h3>
+                    <p>Comprehensive admin interface with analytics, lead management, and business insights.</p>
+                    <div class="feature-actions">
+                        <a href="pages/admin.html" class="btn btn-primary btn-sm">Access Dashboard</a>
+                        <a href="pages/admin.html" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom AI</h3>
+                    <p>Bespoke AI solutions tailored to your unique business requirements and industry challenges.</p>
+                    <div class="feature-actions">
+                        <a href="#contact" class="btn btn-primary btn-sm">Get Quote</a>
+                        <a href="#contact" class="btn btn-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose AI Nexus Pro</h2>
+                <p class="section-subtitle">We combine technical expertise with business acumen to deliver AI solutions that drive real results</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast Integration</h3>
+                    <p>Deploy AI solutions in weeks, not months. Our streamlined process gets you up and running quickly.</p>
+                    <div class="feature-metrics">
+                        <span class="metric">50% Faster</span>
+                        <span class="metric">Time to Market</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-level security protocols ensure your data and AI systems are protected at every level.</p>
+                    <div class="feature-metrics">
+                        <span class="metric">99.9%</span>
+                        <span class="metric">Uptime</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Measurable ROI</h3>
+                    <p>Every AI solution comes with comprehensive analytics and reporting to track your success.</p>
+                    <div class="feature-metrics">
+                        <span class="metric">300%</span>
+                        <span class="metric">Average ROI</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Work with certified AI engineers and business consultants with years of industry experience.</p>
+                    <div class="feature-metrics">
+                        <span class="metric">50+</span>
+                        <span class="metric">AI Experts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI Solutions for Every Business Need</h2>
+                <p class="section-subtitle">Comprehensive AI integration services tailored to your industry and objectives</p>
+            </div>
+            
+            <div class="solutions-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="mobile">
+                        <i class="fas fa-mobile-alt"></i>
+                        Mobile AI
+                    </button>
+                    <button class="tab-btn" data-tab="web">
+                        <i class="fas fa-globe"></i>
+                        Web AI
+                    </button>
+                    <button class="tab-btn" data-tab="enterprise">
+                        <i class="fas fa-building"></i>
+                        Enterprise AI
+                    </button>
+                    <button class="tab-btn" data-tab="custom">
+                        <i class="fas fa-cogs"></i>
+                        Custom AI
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="mobile">
+                        <div class="solution-content">
+                            <div class="solution-info">
+                                <h3>Mobile AI Integration</h3>
+                                <p>Transform your mobile apps with intelligent features that enhance user experience and drive engagement.</p>
+                                <ul class="solution-features">
+                                    <li><i class="fas fa-check"></i> Intelligent chatbots and virtual assistants</li>
+                                    <li><i class="fas fa-check"></i> Predictive analytics and recommendations</li>
+                                    <li><i class="fas fa-check"></i> Image and voice recognition</li>
+                                    <li><i class="fas fa-check"></i> Natural language processing</li>
+                                    <li><i class="fas fa-check"></i> Personalized user experiences</li>
+                                </ul>
+                                <div class="solution-tech">
+                                    <span class="tech-badge">TensorFlow</span>
+                                    <span class="tech-badge">OpenAI</span>
+                                    <span class="tech-badge">React Native</span>
+                                    <span class="tech-badge">Flutter</span>
+                                </div>
+                            </div>
+                            <div class="solution-visual">
+                                <div class="mobile-mockup">
+                                    <div class="phone-frame">
+                                        <div class="phone-screen">
+                                            <div class="app-interface">
+                                                <div class="ai-chat-bubble">
+                                                    <i class="fas fa-robot"></i>
+                                                    <span>How can I help you today?</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="web">
+                        <div class="solution-content">
+                            <div class="solution-info">
+                                <h3>Web AI Integration</h3>
+                                <p>Elevate your website with AI-powered features that convert visitors into customers and optimize performance.</p>
+                                <ul class="solution-features">
+                                    <li><i class="fas fa-check"></i> Smart chatbots and customer support</li>
+                                    <li><i class="fas fa-check"></i> Personalized content recommendations</li>
+                                    <li><i class="fas fa-check"></i> Intelligent search and navigation</li>
+                                    <li><i class="fas fa-check"></i> Behavioral analytics and insights</li>
+                                    <li><i class="fas fa-check"></i> Conversion optimization</li>
+                                </ul>
+                                <div class="solution-tech">
+                                    <span class="tech-badge">LangChain</span>
+                                    <span class="tech-badge">Claude</span>
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Node.js</span>
+                                </div>
+                            </div>
+                            <div class="solution-visual">
+                                <div class="web-mockup">
+                                    <div class="browser-frame">
+                                        <div class="browser-header">
+                                            <div class="browser-dots">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                        <div class="browser-content">
+                                            <div class="ai-widget">
+                                                <i class="fas fa-comments"></i>
+                                                <span>AI Assistant</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="enterprise">
+                        <div class="solution-content">
+                            <div class="solution-info">
+                                <h3>Enterprise AI Solutions</h3>
+                                <p>Streamline operations and boost productivity with AI-powered tools designed for enterprise-scale businesses.</p>
+                                <ul class="solution-features">
+                                    <li><i class="fas fa-check"></i> Document automation and processing</li>
+                                    <li><i class="fas fa-check"></i> CRM enhancement and lead scoring</li>
+                                    <li><i class="fas fa-check"></i> Intelligent dashboards and reporting</li>
+                                    <li><i class="fas fa-check"></i> Process automation and optimization</li>
+                                    <li><i class="fas fa-check"></i> Predictive maintenance and analytics</li>
+                                </ul>
+                                <div class="solution-tech">
+                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">AWS</span>
+                                    <span class="tech-badge">Azure</span>
+                                    <span class="tech-badge">Firebase</span>
+                                </div>
+                            </div>
+                            <div class="solution-visual">
+                                <div class="enterprise-dashboard">
+                                    <div class="dashboard-header">
+                                        <h4>AI Analytics Dashboard</h4>
+                                    </div>
+                                    <div class="dashboard-widgets">
+                                        <div class="widget widget-1">
+                                            <div class="widget-chart"></div>
+                                        </div>
+                                        <div class="widget widget-2">
+                                            <div class="widget-chart"></div>
+                                        </div>
+                                        <div class="widget widget-3">
+                                            <div class="widget-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="custom">
+                        <div class="solution-content">
+                            <div class="solution-info">
+                                <h3>Custom AI Development</h3>
+                                <p>Build bespoke AI solutions tailored to your unique business requirements and industry challenges.</p>
+                                <ul class="solution-features">
+                                    <li><i class="fas fa-check"></i> Natural Language Processing (NLP)</li>
+                                    <li><i class="fas fa-check"></i> Computer Vision and Image Recognition</li>
+                                    <li><i class="fas fa-check"></i> Large Language Model Integration</li>
+                                    <li><i class="fas fa-check"></i> Machine Learning Model Development</li>
+                                    <li><i class="fas fa-check"></i> Custom API Development</li>
+                                </ul>
+                                <div class="solution-tech">
+                                    <span class="tech-badge">PyTorch</span>
+                                    <span class="tech-badge">OpenAI GPT</span>
+                                    <span class="tech-badge">Claude</span>
+                                    <span class="tech-badge">Custom APIs</span>
+                                </div>
+                            </div>
+                            <div class="solution-visual">
+                                <div class="custom-ai-visual">
+                                    <div class="neural-network-animation">
+                                        <div class="node node-1"></div>
+                                        <div class="node node-2"></div>
+                                        <div class="node node-3"></div>
+                                        <div class="node node-4"></div>
+                                        <div class="node node-5"></div>
+                                        <div class="connection connection-1"></div>
+                                        <div class="connection connection-2"></div>
+                                        <div class="connection connection-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Comprehensive Services</h2>
+                <p class="section-subtitle">End-to-end AI integration services from consultation to deployment and support</p>
+            </div>
+            
+            <div class="services-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>AI Strategy & Consultation</h3>
+                        <p>We analyze your business needs and develop a comprehensive AI strategy that aligns with your goals and budget.</p>
+                        <ul>
+                            <li>Business process analysis</li>
+                            <li>AI opportunity identification</li>
+                            <li>ROI projection and planning</li>
+                            <li>Technology stack recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Solution Design & Architecture</h3>
+                        <p>Our experts design scalable AI solutions that integrate seamlessly with your existing systems and infrastructure.</p>
+                        <ul>
+                            <li>System architecture design</li>
+                            <li>API integration planning</li>
+                            <li>Security and compliance review</li>
+                            <li>Performance optimization strategy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Development & Integration</h3>
+                        <p>We build and integrate AI solutions using the latest technologies and best practices for optimal performance.</p>
+                        <ul>
+                            <li>Custom AI model development</li>
+                            <li>API integration and testing</li>
+                            <li>User interface development</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Deployment & Launch</h3>
+                        <p>We ensure smooth deployment and launch of your AI solutions with comprehensive testing and monitoring.</p>
+                        <ul>
+                            <li>Production deployment</li>
+                            <li>Performance monitoring setup</li>
+                            <li>User training and documentation</li>
+                            <li>Go-live support</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Ongoing Support & Optimization</h3>
+                        <p>We provide continuous support, monitoring, and optimization to ensure your AI solutions deliver maximum value.</p>
+                        <ul>
+                            <li>24/7 technical support</li>
+                            <li>Performance monitoring</li>
+                            <li>Regular updates and maintenance</li>
+                            <li>Continuous optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Success stories from businesses that transformed their operations with AI</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"AI Nexus Pro transformed our customer service operations. Their chatbot solution reduced response times by 80% and increased customer satisfaction scores by 35%. The ROI was immediate and substantial."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <span>CEO, TechCorp Solutions</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"The AI-powered analytics dashboard they built for us provides insights we never had before. It's like having a crystal ball for our business decisions. Our revenue increased by 40% within the first quarter."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <span>CTO, DataFlow Inc</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p>"Professional team, excellent communication, and delivered exactly what we needed on time. The AI integration was seamless and the ongoing support has been outstanding. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Emily Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily Rodriguez</h4>
+                                <span>Product Manager, InnovateLab</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <button class="control-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="control-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2 class="section-title">About AI Nexus Pro</h2>
+                        <p class="section-subtitle">We're on a mission to democratize AI and make it accessible to businesses of all sizes</p>
+                    </div>
+                    
+                    <div class="about-story">
+                        <h3>Our Story</h3>
+                        <p>Founded in 2020, AI Nexus Pro emerged from a simple belief: every business deserves access to the transformative power of artificial intelligence. We started as a small team of AI enthusiasts and have grown into a trusted partner for hundreds of enterprises worldwide.</p>
+                        
+                        <h3>Our Mission</h3>
+                        <p>We bridge the gap between cutting-edge AI technology and real-world business applications. Our goal is to help businesses leverage AI to solve real problems, drive growth, and stay competitive in an increasingly digital world.</p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">AI Experts</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="team-collage">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Team Member">
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Team Member">
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Team Member">
+                        </div>
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Team Member">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business with AI?</h2>
+                <p>Join hundreds of businesses that have already revolutionized their operations with our AI solutions. Get started today with a free consultation.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <i class="fas fa-calendar"></i>
+                        Book Free Consultation
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-large">
+                        <i class="fas fa-phone"></i>
+                        Call Us Now
+                    </a>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>30-minute consultation</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-gift"></i>
+                        <span>Free AI assessment</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>No commitment required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Discuss Your AI Project</h2>
+                <p class="section-subtitle">Get in touch with our AI experts to explore how we can help transform your business</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Ready to explore AI opportunities for your business? We'd love to hear about your project and discuss how we can help you achieve your goals.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>hello@ainexuspro.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>San Francisco, CA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="mobile">Mobile AI Integration</option>
+                                <option value="web">Web AI Integration</option>
+                                <option value="enterprise">Enterprise AI Solutions</option>
+                                <option value="custom">Custom AI Development</option>
+                                <option value="consultation">AI Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, challenges, and goals..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Nexus Pro</span>
+                    </div>
+                    <p>Empowering businesses with intelligent AI solutions that drive growth, efficiency, and innovation.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="pages/chatbot.html">AI Chatbot</a></li>
+                        <li><a href="pages/voicebot.html">Voice Bot</a></li>
+                        <li><a href="pages/calendar.html">Smart Calendar</a></li>
+                        <li><a href="pages/payments.html">Payment System</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Nexus Pro. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assistant Widget (Positioned in top-right) -->
+    <div id="ai-assistant" class="ai-assistant">
+        <div class="ai-toggle" id="aiToggle">
+            <div class="ai-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="ai-status">
+                <span class="status-dot"></span>
+                <span class="status-text">AI Assistant</span>
+            </div>
+        </div>
+        
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Business Assistant</span>
+                </div>
+                <button class="chat-close" id="aiChatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>👋 Hello! I'm your AI business assistant. I can help you explore AI integration opportunities, answer questions about our services, and guide you through your digital transformation journey. How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <div class="input-container">
+                    <input type="text" id="aiInput" placeholder="Ask me about AI solutions..." />
+                    <button id="aiSendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-query="Tell me about your AI services">
+                        <i class="fas fa-info-circle"></i>
+                        Services
+                    </button>
+                    <button class="quick-btn" data-query="What are your pricing options?">
+                        <i class="fas fa-dollar-sign"></i>
+                        Pricing
+                    </button>
+                    <button class="quick-btn" data-query="How can AI help my business?">
+                        <i class="fas fa-lightbulb"></i>
+                        Benefits
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Bot Widget (Positioned in bottom-right) -->
+    <div id="voice-bot" class="voice-bot-widget">
+        <div class="voice-toggle" id="voiceToggle">
+            <div class="voice-avatar">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div class="voice-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Voice Bot</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/ai-integration.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 

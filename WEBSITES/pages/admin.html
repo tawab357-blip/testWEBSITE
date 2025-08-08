@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AI Nexus Pro</title>
+    <meta name="description" content="Comprehensive admin dashboard with analytics, lead management, and business insights">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/integrations.css">
+    
+    <style>
+        .admin-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .admin-demo {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        
+        .admin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .admin-content {
+            display: flex;
+            min-height: 600px;
+        }
+        
+        .admin-sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            border-right: 1px solid #e1e5e9;
+        }
+        
+        .admin-nav {
+            padding: 20px 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            background: #e9ecef;
+            border-left-color: #667eea;
+        }
+        
+        .nav-item i {
+            width: 20px;
+            color: #667eea;
+        }
+        
+        .admin-main {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .admin-section {
+            display: none;
+        }
+        
+        .admin-section.active {
+            display: block;
+        }
+        
+        .admin-section h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            border: 1px solid #e1e5e9;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 0 0 10px 0;
+        }
+        
+        .stat-card p {
+            margin: 0;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .leads-table,
+        .appointments-table,
+        .payments-table {
+            background: white;
+            border: 1px solid #e1e5e9;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e1e5e9;
+            color: #666;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-new {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-contacted {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-scheduled {
+            background: #cce5ff;
+            color: #004085;
+        }
+        
+        .status-completed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-succeeded {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pending {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .action-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .auth-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .auth-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .auth-section p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .login-btn {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .login-btn:hover {
+            background: #3367d6;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: #e9ecef;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .user-details h4 {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .user-details p {
+            margin: 0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            background: #c82333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Nexus Pro</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chatbot.html" class="nav-link">AI Chatbot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="voicebot.html" class="nav-link">Voice Bot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="calendar.html" class="nav-link">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin.html" class="nav-link active">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="admin-hero">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>Comprehensive admin interface with analytics, lead management, and business insights</p>
+        </div>
+    </section>
+
+    <!-- Admin Demo -->
+    <section class="admin-container">
+        <div class="admin-demo">
+            <div class="admin-header">
+                <h2>Business Management Dashboard</h2>
+                <p>Monitor your business performance and manage customer interactions</p>
+            </div>
+            <div class="admin-content">
+                <div class="admin-sidebar">
+                    <div class="user-info" id="userInfo" style="display: none;">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-details">
+                            <h4 id="userName">Admin User</h4>
+                            <p id="userEmail">admin@ainexuspro.com</p>
+                        </div>
+                        <button class="logout-btn" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="admin-nav">
+                        <div class="nav-item active" data-section="dashboard">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </div>
+                        <div class="nav-item" data-section="leads">
+                            <i class="fas fa-users"></i>
+                            <span>Leads</span>
+                        </div>
+                        <div class="nav-item" data-section="appointments">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Appointments</span>
+                        </div>
+                        <div class="nav-item" data-section="payments">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Payments</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-main">
+                    <div class="auth-section" id="authSection">
+                        <h3>Sign in to Access Admin Dashboard</h3>
+                        <p>Connect your Google account to view and manage your business data</p>
+                        <button class="login-btn" onclick="authenticate()">
+                            <i class="fab fa-google"></i>
+                            Sign in with Google
+                        </button>
+                    </div>
+                    
+                    <div class="admin-section active" id="dashboard">
+                        <h2>Dashboard Overview</h2>
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <h3 id="totalLeads">0</h3>
+                                <p>Total Leads</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 id="totalAppointments">0</h3>
+                                <p>Appointments</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 id="totalRevenue">$0</h3>
+                                <p>Total Revenue</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3 id="conversionRate">0%</h3>
+                                <p>Conversion Rate</p>
+                            </div>
+                        </div>
+                        
+                        <div class="leads-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Recent Leads</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentLeads">
+                                    <!-- Recent leads will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-section" id="leads">
+                        <h2>Lead Management</h2>
+                        <div class="leads-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Company</th>
+                                        <th>Service Interest</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leadsTable">
+                                    <!-- Leads will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-section" id="appointments">
+                        <h2>Appointment Management</h2>
+                        <div class="appointments-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Client Name</th>
+                                        <th>Email</th>
+                                        <th>Service</th>
+                                        <th>Date & Time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointmentsTable">
+                                    <!-- Appointments will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-section" id="payments">
+                        <h2>Payment Analytics</h2>
+                        <div class="payments-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Service</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentsTable">
+                                    <!-- Payments will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Analytics & Insights</h3>
+                <p>Comprehensive analytics dashboard with real-time data visualization and business insights.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Lead Management</h3>
+                <p>Track and manage leads throughout the sales funnel with automated follow-up and scoring.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Appointment Tracking</h3>
+                <p>Monitor appointments, manage schedules, and track customer interactions in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>Revenue Analytics</h3>
+                <p>Track revenue, analyze payment patterns, and generate detailed financial reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/admin-interface.js"></script>
+    <script>
+        // Enhanced admin functionality
+        class EnhancedAdmin {
+            constructor() {
+                this.isAuthenticated = false;
+                this.currentSection = 'dashboard';
+                this.sampleData = this.generateSampleData();
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.loadSampleData();
+            }
+
+            setupEventListeners() {
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        this.switchSection(item.dataset.section);
+                    });
+                });
+            }
+
+            switchSection(sectionName) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const sections = document.querySelectorAll('.admin-section');
+
+                navItems.forEach(item => item.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+
+                document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
+                document.getElementById(sectionName).classList.add('active');
+
+                this.currentSection = sectionName;
+                this.loadSectionData(sectionName);
+            }
+
+            authenticate() {
+                // Simulate Google authentication
+                this.isAuthenticated = true;
+                document.getElementById('authSection').style.display = 'none';
+                document.getElementById('userInfo').style.display = 'flex';
+                this.loadSectionData('dashboard');
+            }
+
+            logout() {
+                this.isAuthenticated = false;
+                document.getElementById('authSection').style.display = 'block';
+                document.getElementById('userInfo').style.display = 'none';
+                
+                const sections = document.querySelectorAll('.admin-section');
+                sections.forEach(section => section.classList.remove('active'));
+                document.getElementById('dashboard').classList.add('active');
+            }
+
+            generateSampleData() {
+                return {
+                    leads: [
+                        { name: 'John Smith', email: 'john@techcorp.com', company: 'TechCorp', service: 'Chatbot Integration', status: 'New', date: '2024-12-15' },
+                        { name: 'Sarah Johnson', email: 'sarah@innovate.com', company: 'InnovateLab', service: 'Voice Bot', status: 'Contacted', date: '2024-12-14' },
+                        { name: 'Mike Chen', email: 'mike@dataflow.com', company: 'DataFlow Inc', service: 'AI Consultation', status: 'Scheduled', date: '2024-12-13' },
+                        { name: 'Emily Rodriguez', email: 'emily@startup.com', company: 'StartupXYZ', service: 'Custom AI', status: 'Completed', date: '2024-12-12' }
+                    ],
+                    appointments: [
+                        { name: 'John Smith', email: 'john@techcorp.com', service: 'Consultation', datetime: '2024-12-16 10:00 AM', status: 'Confirmed' },
+                        { name: 'Sarah Johnson', email: 'sarah@innovate.com', service: 'Technical Review', datetime: '2024-12-17 2:00 PM', status: 'Pending' },
+                        { name: 'Mike Chen', email: 'mike@dataflow.com', service: 'Project Kickoff', datetime: '2024-12-18 11:00 AM', status: 'Confirmed' }
+                    ],
+                    payments: [
+                        { customer: 'John Smith', service: 'Chatbot Integration', amount: '$2,000', status: 'Succeeded', date: '2024-12-15' },
+                        { customer: 'Sarah Johnson', service: 'Voice Bot Setup', amount: '$3,500', status: 'Pending', date: '2024-12-14' },
+                        { customer: 'Mike Chen', service: 'AI Consultation', amount: '$150', status: 'Succeeded', date: '2024-12-13' }
+                    ]
+                };
+            }
+
+            loadSampleData() {
+                // Update dashboard stats
+                document.getElementById('totalLeads').textContent = this.sampleData.leads.length;
+                document.getElementById('totalAppointments').textContent = this.sampleData.appointments.length;
+                
+                const totalRevenue = this.sampleData.payments
+                    .filter(p => p.status === 'Succeeded')
+                    .reduce((sum, p) => sum + parseInt(p.amount.replace('$', '').replace(',', '')), 0);
+                document.getElementById('totalRevenue').textContent = `$${totalRevenue.toLocaleString()}`;
+                
+                const conversionRate = Math.round((this.sampleData.leads.filter(l => l.status === 'Completed').length / this.sampleData.leads.length) * 100);
+                document.getElementById('conversionRate').textContent = `${conversionRate}%`;
+            }
+
+            loadSectionData(sectionName) {
+                if (!this.isAuthenticated) return;
+
+                switch (sectionName) {
+                    case 'dashboard':
+                        this.loadRecentLeads();
+                        break;
+                    case 'leads':
+                        this.loadLeadsTable();
+                        break;
+                    case 'appointments':
+                        this.loadAppointmentsTable();
+                        break;
+                    case 'payments':
+                        this.loadPaymentsTable();
+                        break;
+                }
+            }
+
+            loadRecentLeads() {
+                const recentLeads = this.sampleData.leads.slice(0, 3);
+                const tbody = document.getElementById('recentLeads');
+                
+                tbody.innerHTML = recentLeads.map(lead => `
+                    <tr>
+                        <td>${lead.name}</td>
+                        <td>${lead.email}</td>
+                        <td><span class="status-badge status-${lead.status.toLowerCase()}">${lead.status}</span></td>
+                        <td>${lead.date}</td>
+                        <td><button class="action-btn">View</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            loadLeadsTable() {
+                const tbody = document.getElementById('leadsTable');
+                
+                tbody.innerHTML = this.sampleData.leads.map(lead => `
+                    <tr>
+                        <td>${lead.name}</td>
+                        <td>${lead.email}</td>
+                        <td>${lead.company}</td>
+                        <td>${lead.service}</td>
+                        <td><span class="status-badge status-${lead.status.toLowerCase()}">${lead.status}</span></td>
+                        <td>${lead.date}</td>
+                        <td><button class="action-btn">Edit</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            loadAppointmentsTable() {
+                const tbody = document.getElementById('appointmentsTable');
+                
+                tbody.innerHTML = this.sampleData.appointments.map(appointment => `
+                    <tr>
+                        <td>${appointment.name}</td>
+                        <td>${appointment.email}</td>
+                        <td>${appointment.service}</td>
+                        <td>${appointment.datetime}</td>
+                        <td><span class="status-badge status-${appointment.status.toLowerCase()}">${appointment.status}</span></td>
+                        <td><button class="action-btn">Manage</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            loadPaymentsTable() {
+                const tbody = document.getElementById('paymentsTable');
+                
+                tbody.innerHTML = this.sampleData.payments.map(payment => `
+                    <tr>
+                        <td>${payment.customer}</td>
+                        <td>${payment.service}</td>
+                        <td>${payment.amount}</td>
+                        <td><span class="status-badge status-${payment.status.toLowerCase()}">${payment.status}</span></td>
+                        <td>${payment.date}</td>
+                        <td><button class="action-btn">View</button></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        // Global functions
+        function authenticate() {
+            window.enhancedAdmin.authenticate();
+        }
+
+        function logout() {
+            window.enhancedAdmin.logout();
+        }
+
+        // Initialize enhanced admin
+        document.addEventListener('DOMContentLoaded', () => {
+            window.enhancedAdmin = new EnhancedAdmin();
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - AI Nexus Pro</title>
+    <meta name="description" content="Intelligent AI chatbot with natural language processing and 24/7 customer support">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/integrations.css">
+    
+    <style>
+        .chatbot-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .chatbot-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .chatbot-demo {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            overflow: hidden;
+        }
+        
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .chatbot-content {
+            padding: 40px;
+            min-height: 600px;
+        }
+        
+        .chat-interface {
+            border: 2px solid #e1e5e9;
+            border-radius: 15px;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .message.user .message-avatar {
+            background: #667eea;
+            color: white;
+        }
+        
+        .message.bot .message-avatar {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .message-content {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            max-width: 70%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+        }
+        
+        .chat-input {
+            padding: 20px;
+            border-top: 1px solid #e1e5e9;
+            background: white;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #e1e5e9;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+        
+        .chat-input button {
+            padding: 15px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <i class="fas fa-brain"></i>
+                    <span>AI Nexus Pro</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chatbot.html" class="nav-link active">AI Chatbot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="voicebot.html" class="nav-link">Voice Bot</a>
+                </li>
+                <li class="nav-item">
+                    <a href="calendar.html" class="nav-link">Calendar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="payments.html" class="nav-link">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="admin.html" class="nav-link">Admin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="chatbot-hero">
+        <div class="container">
+            <h1>AI Chatbot</h1>
+            <p>Intelligent customer support with natural language processing and 24/7 availability</p>
+        </div>
+    </section>
+
+    <!-- Chatbot Demo -->
+    <section class="chatbot-container">
+        <div class="chatbot-demo">
+            <div class="chatbot-header">
+                <h2>Try Our AI Chatbot</h2>
+                <p>Ask questions about our services, pricing, or any business inquiries</p>
+            </div>
+            <div class="chatbot-content">
+                <div class="chat-interface">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>👋 Hello! I'm your AI business assistant. How can I help you today? You can ask me about our services, pricing, or any business-related questions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="userInput" placeholder="Type your message here..." />
+                        <button id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Natural Language Processing</h3>
+                <p>Advanced NLP capabilities to understand and respond to complex queries in natural language.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>24/7 Availability</h3>
+                <p>Always available to provide instant responses and support to your customers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Analytics & Insights</h3>
+                <p>Comprehensive analytics to track conversations, identify trends, and improve performance.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Easy Integration</h3>
+                <p>Seamless integration with your existing website, CRM, and business systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/tiledesk-chatbot.js"></script>
+    <script>
+        // Enhanced chatbot functionality
+        class EnhancedChatbot {
+            constructor() {
+                this.messages = [];
+                this.isTyping = false;
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.loadInitialMessages();
+            }
+
+            setupEventListeners() {
+                const sendBtn = document.getElementById('sendBtn');
+                const userInput = document.getElementById('userInput');
+
+                sendBtn.addEventListener('click', () => this.sendMessage());
+                userInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+            }
+
+            loadInitialMessages() {
+                // Add initial bot message
+                this.addMessage('bot', '👋 Hello! I\'m your AI business assistant. How can I help you today? You can ask me about our services, pricing, or any business-related questions.');
+            }
+
+            sendMessage() {
+                const userInput = document.getElementById('userInput');
+                const message = userInput.value.trim();
+
+                if (message) {
+                    this.addMessage('user', message);
+                    userInput.value = '';
+                    this.processUserMessage(message);
+                }
+            }
+
+            addMessage(sender, text) {
+                const chatMessages = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+
+                const content = document.createElement('div');
+                content.className = 'message-content';
+                content.innerHTML = `<p>${text}</p>`;
+
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(content);
+                chatMessages.appendChild(messageDiv);
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            async processUserMessage(message) {
+                // Show typing indicator
+                this.showTyping();
+
+                // Simulate AI processing delay
+                setTimeout(() => {
+                    this.hideTyping();
+                    const response = this.generateResponse(message);
+                    this.addMessage('bot', response);
+                }, 1000 + Math.random() * 2000);
+            }
+
+            showTyping() {
+                const chatMessages = document.getElementById('chatMessages');
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message bot typing';
+                typingDiv.id = 'typingIndicator';
+                typingDiv.innerHTML = `
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i></p>
+                    </div>
+                `;
+                chatMessages.appendChild(typingDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            hideTyping() {
+                const typingIndicator = document.getElementById('typingIndicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+
+            generateResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                // Service-related responses
+                if (lowerMessage.includes('service') || lowerMessage.includes('offer')) {
+                    return "We offer comprehensive AI integration services including Mobile AI, Web AI, Enterprise AI, and Custom AI Development. Our services cover chatbots, predictive analytics, natural language processing, and more. Would you like to know more about any specific service?";
+                }
+                
+                // Pricing-related responses
+                if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('how much')) {
+                    return "Our pricing is tailored to your specific needs. We offer free consultations, flexible pricing models starting from $2,000/month, and ROI-focused solutions. Would you like to schedule a free consultation to get a custom quote?";
+                }
+                
+                // Time-related responses
+                if (lowerMessage.includes('time') || lowerMessage.includes('duration') || lowerMessage.includes('how long')) {
+                    return "Typical AI integration projects take 4-12 weeks depending on complexity. Mobile AI: 4-6 weeks, Web AI: 6-8 weeks, Enterprise AI: 8-12 weeks. We provide detailed timelines during consultation.";
+                }
+                
+                // Technology-related responses
+                if (lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('tools')) {
+                    return "We use cutting-edge technologies including OpenAI GPT, Google Gemini, TensorFlow, PyTorch, React, Node.js, Python, and cloud platforms like AWS and Azure.";
+                }
+                
+                // Support-related responses
+                if (lowerMessage.includes('support') || lowerMessage.includes('help') || lowerMessage.includes('maintenance')) {
+                    return "Yes! We provide 24/7 technical support, regular updates, performance monitoring, and continuous optimization. Our support includes maintenance, troubleshooting, and feature enhancements.";
+                }
+                
+                // Security-related responses
+                if (lowerMessage.includes('security') || lowerMessage.includes('secure') || lowerMessage.includes('data')) {
+                    return "Absolutely. We implement enterprise-grade security with bank-level encryption, SOC 2 compliance, GDPR adherence, and secure cloud infrastructure. Your data is protected at every level.";
+                }
+                
+                // ROI-related responses
+                if (lowerMessage.includes('roi') || lowerMessage.includes('return') || lowerMessage.includes('benefit')) {
+                    return "Our clients typically see 300% average ROI within 6-12 months. Specific benefits include 80% faster response times, 40% increased customer satisfaction, and 50% reduction in operational costs.";
+                }
+                
+                // Default response
+                return "Thank you for your message! I'm here to help you with any questions about our AI services, pricing, technology, or business solutions. Could you please provide more specific details about what you'd like to know?";
+            }
+        }
+
+        // Initialize enhanced chatbot
+        document.addEventListener('DOMContentLoaded', () => {
+            new EnhancedChatbot();
+        });
+    </script>
+</body>
+</html> 
